@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window</title>
+</head>
+<body>
+    <h1 id="title">Jobber i LMS</h1>
+    <p id="nameprint"></p>
+
+
+    <script>
+        const viewWidth = window.innerWidth
+        const viewHeight = window.innerHeight
+        const viewProportion = viewWidth / viewHeight
+
+        console.log(viewProportion)
+
+        const title = document.getElementById("title")
+        title.innerHTML = "Min endrede tittel"
+
+        const name = "Victor"
+        console.log(`Mitt navn er ${name}.`)
+
+    </script>
+</body>
+</html>
