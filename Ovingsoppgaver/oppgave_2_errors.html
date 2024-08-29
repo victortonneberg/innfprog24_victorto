@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2</title>
+</head>
+<body>
+    <p id="melding"></p>
+    <script> //RETTET Lagt på > på script
+    //vi har hentet brukerinformasjon, og lagret navnet til brukeren og lagret det i variabelen kalt user_name
+    const user_name = "Victor"
+
+    //Vi har hentet fødselsåret til brukeren og lagret det i variabelen user_birthyear
+    const user_birthyear = 1983 //RETTET Fjernet dobbel "t" etter const. Lagt på "" rundt 1983
+
+    //Vi regner ut alder ved å ta året vi er i minus fødselsår, og lagrer svaret i en ny variabel kalt age
+    const age = 2022 - user_birthyear //RETTET "_" istedenfor "="
+
+    //Så lager vi en tekst for utskrift ved hjelp av konkatinering
+    const utskrift = "Hei " + user_name + " (" + age + " år)" //RETTET Fikset på overflødig tegn og flyttet på rett plass
+
+    //...og skriver den ut til elementet med id melding
+    document.getElementById("melding").innerHTML = utskrift
+
+
+    </script>
+    
+    
+</body>
+</html>
