@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1 fra GPT</title>
+</head>
+<body>
+    <h2>Er det et partallsår, og er februar måneden?</h2>
+    <p id="yearmonthmessage"></p>
+
+    <script>
+        const year = 2022
+        const month = "Februar"
+
+        let yearMonthMsg = = document.getElementById("yearmonthmessage")
+
+        if(year %2 === 0 && month === "Februar") {
+            yearMonthMsg.innerHTML = "Ja"
+        } else {
+            yearMonthMsg.innerHTML = "Nei"
+        }
+
+    </script>
+</body>
+</html>
