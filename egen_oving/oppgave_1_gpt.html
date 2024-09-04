@@ -8,17 +8,84 @@
 <body>
     <h2>Er det et partallsår, og er februar måneden?</h2>
     <p id="yearmonthmessage"></p>
+    
+    <h2>Kan spilleren handle i butikken?</h2>
+    <p id="shopmessage"></p>
+
+    <h2>Er brukeren kvalifisert for rabatt?</h2>
+    <p id="discountmessage"></p>
+
+    <h2>Har brukeren krav på gratis frakt?</h2>
+    <p id="shippingmessage"></p>
+
+    <h2>Kan brukeren registrere seg for et arrangement?</h2>
+    <p id="registrationmessage"></p>
 
     <script>
+        //Oppgave 1
+
         const year = 2022
         const month = "Februar"
 
-        let yearMonthMsg = = document.getElementById("yearmonthmessage")
+        let yearMonthMsg = document.getElementById("yearmonthmessage")
 
         if(year %2 === 0 && month === "Februar") {
             yearMonthMsg.innerHTML = "Ja"
         } else {
             yearMonthMsg.innerHTML = "Nei"
+        }
+
+
+        //Oppgave 2
+
+        const money = 69
+        const hasMembership = "true"
+
+        let shopMsg = document.getElementById("shopmessage")
+
+        if(money >= 50 || hasMembership === true) {
+            shopMsg.innerHTML = "Ja"
+        } else {
+            shopMsg.innerHTML = "Nei"
+        }
+
+        //Oppgave 3
+
+        const userAge = 20
+        const isStudent = true
+
+        let discountMsg = document.getElementById("discountmessage")
+
+        if(userAge >=65 || isStudent === true) {
+            discountMsg.innerHTML = "Ja"
+        } else {
+            discountMsg.innerHTML = "Nei"
+        }
+
+        //Oppgave 4
+
+        const orderAmount = 900
+        const isVIPMember = true
+
+        let shippingMsg = document.getElementById("shippingmessage")
+
+        if(orderAmount >= 1000 || isVIPMember === true) {
+            shippingMsg.innerHTML = "Ja"
+        } else {
+            shippingMsg.innerHTML = "Nei"
+        }
+
+        //Oppgave 3
+
+        const userRegistationAge = 17
+        const hasPermissionSlip = false
+
+        let registrationMsg = document.getElementById("registrationmessage")
+
+        if(userRegistationAge >= 18 || hasPermissionSlip === true) {
+            registrationMsg.innerHTML = "Ja"
+        } else {
+            registrationMsg.innerHTML = "Nei"
         }
 
     </script>
