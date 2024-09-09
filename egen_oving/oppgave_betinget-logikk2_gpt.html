@@ -15,6 +15,15 @@
     <h3>Oppgave 3</h3>
     <p id="examResult"></p>
 
+    <h3>Oppgave 4</h3>
+    <p id="wordCount"></p>
+
+    <h3>Oppgave 5</h3>
+    <p id="ticketMessage"></p>
+
+    <h3>Oppgave 6</h3>
+    <p id="storeStatus"></p>
+
 
     <script>
         //Oppgave 1
@@ -60,6 +69,34 @@
         } 
 
         document.getElementById("examResult").innerHTML = grade
+
+        //Oppgave 4
+        const text = "Dette er en test ehhe";
+        const words = text.split(" ");
+        const wordCount = words.length;
+
+        document.getElementById("wordCount").innerHTML = "Antall ord i teksten er: " + wordCount;
+
+        //Oppgave 5
+        const personAgee = 13;
+        const ticketMsg = document.getElementById("ticketMessage")
+
+        if(personAgee > 12) {
+            ticketMsg.innerHTML = "Du må betale voksenpris!"
+        } else {
+            ticketMsg.innerHTML = "Du kan betale barnepris :)"
+        }
+
+        //Oppgave 6
+        const currentHour = 7;
+        const storeStatusMsg = document.getElementById("storeStatus")
+
+        if(currentHour >= 8 && currentHour <=16) {
+            storeStatusMsg.innerHTML = "Butikken er åpen!";
+        } else {
+            storeStatusMsg.innerHTML = "Butikken er dessverre stengt..."
+        }
+
 
         
 
