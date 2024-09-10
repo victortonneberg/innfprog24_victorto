@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object cheat sheet</title>
+</head>
+<body>
+    <ul id="profiles"></ul>
+
+    <script>
+            const lecturers = [
+            {
+                personname: "Marius Akerbæk",
+                office: "D1-016",
+                email: "toremake@hiof.no",
+                birthyear: 1983,
+                courses: ["Innføring i programmering", "Kommunikasjonsdesign", "UI Designprosjekt", "Utvikling av interaktive nettsteder"]
+            },
+            {
+                personname: "Ann-Charlotte Karlsen",
+                office: "D1-062",
+                email: "ackarlse@hiof.no",
+                birthyear: 1992,
+                courses: ["Webutvikling", "Utvikling av interaktive nettsteder"]
+            },
+            {
+                personname: "Ole Edvard Ørebæk",
+                office: "D1-061A",
+                email: "oledvo@hiof.no",
+                birthyear: 1993,
+                courses: ["Innføring i datasikkerhet"]
+            },
+            {
+                personname: "Daniella Blauhut",
+                office: "D1-015",
+                email: "danielb@hiof.no",
+                birthyear: 1977,
+                courses: ["Designmetoder", "UI Designprosjekt"]
+            } 
+
+
+        ]
+
+                //Sjekke ut .(map) i LMS
+
+        //document.getElementById("contactinfo").innerHTML = `${lecturer.personname} sitter på kontor ${lecturer.office}. Epost: ${lecturer.email}. Favorittkurset hans er ${lecturer.courses[0]}.`
+
+        console.log(lecturers)
+    </script>
+</body>
+</html>
