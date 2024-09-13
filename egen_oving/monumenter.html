@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdenskjente monumenter</title>
+</head>
+<body>
+    <ul id="monumenter"></ul>
+
+    <script>
+        const monumentInfo = [
+            {
+                monument: "Giza-pyramiden",
+                year: -2560 
+            },
+            {
+                monument: "Eiffeltårnet",
+                year: 1889
+            },
+            {
+                monument: "Colosseum",
+                year: 80
+            },
+            {
+                monument: "Taj Mahal",
+                year: 1632
+            },
+            {
+                monument: "Kristusstatuen i Rio de Janeiro",
+                year: 1931
+            }
+        ]
+        monumentInfo.sort((a, b) => a.year - b.year)
+
+        monumentInfo.map(monument => document.getElementById("monumenter").innerHTML += `<li>${monument.monument}: ${monument.year}</li>`)
+    </script>
+    
+</body>
+</html>

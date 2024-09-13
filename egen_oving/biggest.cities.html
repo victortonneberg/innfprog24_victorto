@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Største byer i verden 2023</title>
+</head>
+<body>
+
+    <ul id="biggest-cities"></ul>
+
+    <script>
+        const cities = [
+            {
+                city: "Tokyo",
+                people: 37.4
+            },
+            {
+                city: "Delhi",
+                people: 30.3
+            },
+            {
+                city: "Shanghai",
+                people: 27.0
+            },
+            {
+                city: "Sao Paulo",
+                people: 22.0
+            },
+            {
+                city: "Mexico City",
+                people: 21.8
+            }   
+        ]
+
+        cities.map(city => document.getElementById("biggest-cities").innerHTML += `<li>${city.city}: ${city.people} millioner</li>`)
+
+
+
+
+
+        //console.log(cities)
+    </script>
+    
+</body>
+</html>
