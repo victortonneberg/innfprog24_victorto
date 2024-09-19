@@ -82,7 +82,9 @@
                 points: 10,
                 duration: 138
             }
-        
+
+        //Lage notebook
+
         const notebook = {
             variables: 5,
             arrays: 2,
@@ -91,9 +93,9 @@
         }
        
 
-            //Sjekke om det finnes gameConfig.player, og print i HTML
       
-
+        //function for all prints
+        
         function updateStaticUI() {
             document.getElementById("playerName").innerHTML = gameConfig.player || "Waiting for player....."
             document.getElementById("energy").innerHTML = gameConfig.energy
