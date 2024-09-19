@@ -214,8 +214,27 @@
                     //Når brikken er plassert på spillerbrettet, må vi sjekke om den - og brikkene rundt - 
                     //utgjør en vinnerkombinasjon. Denne funksjonaliteten ligger i funksjonen sjekkVinner(),
                     //siden dette er et litt større sett med handlinger og kan gi noen ulike utfall.
-                    sjekkVinner();
 
+                   //Oppgave 3: La til setTimeout function med delay på 1 sek før sjekkVinner() function. sjekkVinner() blir kalt etter hver gang en spiller har gjort et trekk.
+                    //Litt usikker på om det er beste måten å gjøre det på. Med koden nå, vil spillet sjekke etter vinner etter hvert trekk, som fører til
+                    // ett sekund delay for hvert trekk.
+
+                        setTimeout(function() {
+                    sjekkVinner();
+                    if (spillStatus === true) {
+                        if (player === 1) {
+                            player = 2;
+                            playermark = "O"
+                        } else {
+                            player = 1;
+                            playermark = "X"
+                        }
+                        document.getElementById("player").innerHTML = player;
+                        document.getElementById("playermark").innerHTML = playermark;
+                    }
+                }, 1000);
+                    
+                
                 //Men, hvis cellen ikke er ledig...
                 } else {
                     //...skriver vi ut en beskjed til spilleren, og lar han velge en ny celle.
@@ -223,7 +242,7 @@
                     return;
                 }
 
-                //Når spillerens tur er ferdig, er det neste spillers tur.
+          /*      //Når spillerens tur er ferdig, er det neste spillers tur.
                 //Det viser vi ved å sette variabelen "player" til 2 hvis den var 1 denne turen, eller hvis den var 2, sett tilbake til 1.
                 //På samme måte må spillersymbolet veksles mellom X og O.
                 if (player === 1) {
@@ -233,10 +252,11 @@
                     player = 1;
                     playermark = "X";
                 }
-                if(spillStatus === true) {
+              //  if(spillStatus === true) {
                     document.getElementById("player").innerHTML = player;
                     document.getElementById("playermark").innerHTML = playermark;
-                }
+               } */
+
             //Hvis spillstatus er false, avslutter vi funksjonen uten å utføre noen handlinger.
             } else {
                 //Feil 3: La på en ekstra / for å lage kommentar. "Så returnerer vi spillet"
@@ -246,6 +266,10 @@
 
         function sjekkVinner() {
             var rundenVunnet = false;
+
+            //Oppgave 4: Gjør det mulig å lagre vinnercellene/kombinasjonene.
+            var vinnerCeller = [];
+
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
             // Dette gjør vi ved å gå gjennom alle vinnerkombinasjonene, og
             //sjekke om brikkene på spillbrettet er like ved indexene til vinnerkombinasjonene:
@@ -268,6 +292,10 @@
                 //brikke3, er alle like, og vi har en vinnerkombinasjon. Da 
                 if(brikke1 === brikke2 && brikke2 === brikke3) {
                     rundenVunnet = true;
+
+                    //Oppgave 4: Gjør at vinnercellene blir lagret i variablen lagd over.
+                    vinnerCeller = [vinnerKomboPlass1, vinnerKomboPlass2, vinnerKomboPlass3];
+
                     break;
                 }
             }
@@ -280,7 +308,13 @@
                 document.getElementById("newgame").style.display = "block";
 
                 //Oppgave 2. Lagt til background color på id playerturn.
-                document.getElementById("playerturn").style.backgroundColor = "#FFD700"; 
+                document.getElementById("playerturn").style.backgroundColor = "#FFD700";  
+
+                //Oppgave 4: Lagt til forEach, slik at vinnerrekken vil bli gull. Se tilhørende kode lenger opp.
+                vinnerCeller.forEach(function(celle) {
+                    document.getElementById("celle" + celle).style.color = "#FFD700";
+                });
+                
                 //Sett spillstatus til false, slik at ingen spillere får plassere
                 //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
                 spillStatus = false;
