@@ -268,9 +268,7 @@
                 if(brikke1 === "" || brikke2 === "" || brikke3 === "") {
                     continue;
                 }
-                //Oppgave 4: Gjør det mulig å lagre vinnercellene/kombinasjonene.
-                var vinnerCeller = [vinnerKomboPlass1, vinnerKomboPlass2, vinnerKomboPlass3];
-                
+         
                 //Hvis brikke1 er det samme som brikke 2, og brikke 2 er det samme som
                 //brikke3, er alle like, og vi har en vinnerkombinasjon. Da 
                 if(brikke1 === brikke2 && brikke2 === brikke3) {
@@ -298,7 +296,7 @@
                     document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700";
                     document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700";
                     document.getElementById("celle" + vinnerKomboPlass3).style.color = "#FFD700";
-               
+                    
                 }, 1000);
 
                 spillStatus = false;
