@@ -266,6 +266,8 @@
 
         function sjekkVinner() {
             var rundenVunnet = false;
+            //Laget variabel vinnerSpiller slik at den som vinner spillet kan lagres, før det skrives ut via innerHTML i rundenVunnet variabelen.
+            var vinnerSpiller = player;
 
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
             // Dette gjør vi ved å gå gjennom alle vinnerkombinasjonene, og
@@ -295,11 +297,14 @@
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) {
+                
                 //Oppgave 3: Laget settimout funksjon, som gir et delay på 1 sekund med å sjekke vinner.
 
                 setTimeout(function() {
+                //Fikset kode, slik at vinnerSpiller lagres. Med den opprinnelige koden vil det kun skrives ut neste spiller sin tur,
+                // som da gir feil svar. 
                 //Skriv ut hvilken spiller som har vunnet
-                document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
+                document.getElementById("playerturn").innerHTML = "Spiller " + vinnerSpiller + " har vunnet!";
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
 
