@@ -67,6 +67,19 @@
             color: white;
             cursor: pointer;
         }
+
+        #spillteller {
+            width: 300px;
+            padding: 10px;
+            display: block;
+            margin: 20px auto;
+            background: #6ea100;
+            border: 2px solid #000;
+            border-radius: 5px;
+            color: #000;
+            font-size: 20px;
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -84,6 +97,11 @@
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
     </section>
+    <!--Oppgave 5: Laget en section for å vise antall spill som er spilt. Lagt span ID slik at P taggen kan oppdateres når variablen oppdaterer seg.-->
+    <section id="spillteller">
+        <p>Antall spill: <span id="spillCount">0</span></p>
+    </section>
+
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
 
     <script>
@@ -215,8 +233,6 @@
                     //utgjør en vinnerkombinasjon. Denne funksjonaliteten ligger i funksjonen sjekkVinner(),
                     //siden dette er et litt større sett med handlinger og kan gi noen ulike utfall.
 
-                    //Oppgave 3: setTimeout funksjon, som gir et delay på 1 sekund. Usikker på om dette er best-practice. Får opp at feil spiller vinner, og delayen starter fra første trekk blir gjort
-                    // Kan ses tydelig om du setter høyere delay
                         sjekkVinner()
                    
                 //Men, hvis cellen ikke er ledig...
@@ -325,6 +341,14 @@
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
         }
+
+        //Oppgave 5: Laget variabel clickCount slik at jeg kan telle antall ganger knappen for newgame er klikket på. Deretter
+        // la jeg til evenListener, og printet dette ut i spanID jeg opprettet i HTML koden.
+        var clickCount = 0;
+        document.getElementById("newgame").addEventListener("click", function() {
+            clickCount++;
+            document.getElementById("spillCount").innerHTML = clickCount
+        });
     </script>
 </body>
 
