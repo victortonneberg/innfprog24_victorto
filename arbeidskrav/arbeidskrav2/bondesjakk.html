@@ -99,7 +99,7 @@
     </section>
     <!--Oppgave 5: Laget en section for å vise antall spill som er spilt. Lagt span ID slik at P taggen kan oppdateres når variablen oppdaterer seg.-->
     <section id="spillteller">
-        <p>Antall spill: <span id="spillCount">0</span></p>
+        <p>Antall spill: <span id="spillCount">1</span></p>
     </section>
 
     <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
@@ -266,6 +266,7 @@
 
         function sjekkVinner() {
             var rundenVunnet = false;
+
             //Laget variabel vinnerSpiller slik at den som vinner spillet kan lagres, før det skrives ut via innerHTML i rundenVunnet variabelen.
             var vinnerSpiller = player;
 
@@ -299,8 +300,8 @@
             if(rundenVunnet === true) {
                 
                 //Oppgave 3: Laget settimout funksjon, som gir et delay på 1 sekund med å sjekke vinner.
-
                 setTimeout(function() {
+
                 //Fikset kode, slik at vinnerSpiller lagres. Med den opprinnelige koden vil det kun skrives ut neste spiller sin tur,
                 // som da gir feil svar. 
                 //Skriv ut hvilken spiller som har vunnet
@@ -308,7 +309,7 @@
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
 
-                //Oppgave 2. Lagt til background color på id playerturn.
+                //Oppgave 2. Lagt til background color på id playerturn når en spiller vinner.
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700";  
 
 
@@ -349,7 +350,7 @@
 
         //Oppgave 5: Laget variabel clickCount slik at jeg kan telle antall ganger knappen for newgame er klikket på. Deretter
         // la jeg til evenListener, og printet dette ut i spanID jeg opprettet i HTML koden.
-        var clickCount = 0;
+        var clickCount = 1;
         document.getElementById("newgame").addEventListener("click", function() {
             clickCount++;
             document.getElementById("spillCount").innerHTML = clickCount
