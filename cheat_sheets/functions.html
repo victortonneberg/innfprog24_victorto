@@ -6,10 +6,40 @@
     <title>Functions cheat sheet</title>
 </head>
 <body>
-
+    <p>Victor Tønneberg. E-post: <span id="emailcontainer"></span></p>
 
     <script>
-        
+        //Deklarere en funksjon
+        function myFirstFunction() {
+            console.log("Jeg kjører min første funksjon :)");
+        }
+
+        //Kjøre (kalle) funksjonen
+        myFirstFunction()
+
+
+        //Deklarere en funksjon med en parameter
+        function printName(name) {
+            console.log("Jeg heter " + name);
+        }
+        printName("Victor")
+
+
+        //Deklarere en funksjon med en parameter som har en standard verdi
+        function printDefaultName(name = "ingenting enda...") {
+            console.log("Jeg heter " + name);
+        }
+        printDefaultName("Jostein")
+
+        //Lage en funksjon med e-post som link (template)
+        function createEmailLink(email) {
+            if(!email) {
+                return "Ikke oppgitt"
+            }
+            return `<a href="mailto:${email}">${email}</a>`
+        }
+        console.log(createEmailLink("victorto@hiof.no"))
+        document.getElementById("emailcontainer").innerHTML = createEmailLink("victorto@hiof.no")
     </script>
 </body>
 </html>
