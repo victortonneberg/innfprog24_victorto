@@ -97,7 +97,10 @@
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
     </section>
-    <!--Oppgave 5: Laget en section for å vise antall spill som er spilt. Lagt span ID slik at P taggen kan oppdateres når variablen oppdaterer seg.-->
+
+    <!--Oppgave 5: Laget en section for å vise antall spill som er spilt. Lagt span ID slik at P taggen kan oppdateres når variablen oppdaterer seg.
+    Satt tallet 1 mellom span taggene, fordi den skal starte på 1 ved starten av spillet, og deretter oppdateres av clickCount.-->
+
     <section id="spillteller">
         <p>Antall spill: <span id="spillCount">1</span></p>
     </section>
@@ -133,7 +136,7 @@
         var player = 1;
         var playermark = "X";
         //Dette skriver vi ut i <span>-tagene med id-ene "player" og "playermark" i <div>-tagen med id "playerturn"
-        document.getElementById("player").innerHTML = player; // Feil 1: Endret fra : til ;
+        document.getElementById("player").innerHTML = player; // Oppgave 1: Endret fra : til ;
         document.getElementById("playermark").innerHTML = playermark;
 
         //Så lager vi en teller for å se hvor mange spill vi har spilt:
@@ -180,7 +183,7 @@
         document.getElementById("celle3").addEventListener("click", function() {
             spill(3);
         });
-        document.getElementById("celle4").addEventListener("click", function() { //Feil 4 Skrivefeil i "addEventListener"
+        document.getElementById("celle4").addEventListener("click", function() { //Oppgave 1: Skrivefeil i "addEventListener"
             spill(4);
         });
         document.getElementById("celle5").addEventListener("click", function() {
@@ -209,7 +212,7 @@
                 var cellSpace = document.getElementById("celle"+celle).innerHTML;
                 
                 //Hvis den er ledig...
-                if(cellSpace === "") { //Feil 2: Endret fra ifff til if
+                if(cellSpace === "") { //Oppgave 1: Endret fra ifff til if
                     //...sjekk hvilken spiller sin tur det er, og plasser riktig symbol på spillerbrettet
                     if (player === 1) {
                         //Plasser symbol på spillerbrettet i nettleseren
@@ -299,10 +302,10 @@
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
             if(rundenVunnet === true) {
                 
-                //Oppgave 3: Laget settimout funksjon, som gir et delay på 1 sekund med å sjekke vinner.
+                //Oppgave 3: Laget setTimout funksjon, som gir et delay på 1 sekund før koden sjekker vinner.
                 setTimeout(function() {
 
-                //Fikset kode, slik at vinnerSpiller lagres. Med den opprinnelige koden vil det kun skrives ut neste spiller sin tur,
+                // La til vinnerSpiller variablen jeg laget tidligere slik at vinneren av spillet lagres. Med den opprinnelige koden vil det kun skrives ut neste spiller sin tur,
                 // som da gir feil svar. 
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + vinnerSpiller + " har vunnet!";
@@ -313,7 +316,7 @@
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700";  
 
 
-                //Oppgave 4: Utskrift av gullfarge på vinnerkombo 1, 2 og 3.
+                //Oppgave 4: Utskrift av gullfarge på vinnerKomboPlass 1, 2 og 3.
                 
                     document.getElementById("celle" + vinnerKomboPlass1).style.color = "#FFD700";
                     document.getElementById("celle" + vinnerKomboPlass2).style.color = "#FFD700";
@@ -349,7 +352,9 @@
         }
 
         //Oppgave 5: Laget variabel clickCount slik at jeg kan telle antall ganger knappen for newgame er klikket på. Deretter
-        // la jeg til evenListener, og printet dette ut i spanID jeg opprettet i HTML koden.
+        // la jeg til addEventListener, og printet dette ut i span-taggen jeg opprettet i HTML koden.
+        // Her brukte jeg en blanding av LMS stoffet og stackoverflow for å finne en fungerende løsning.
+
         var clickCount = 1;
         document.getElementById("newgame").addEventListener("click", function() {
             clickCount++;
