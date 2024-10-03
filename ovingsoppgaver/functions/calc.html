@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppgave 4</title>
+    <title>Oppgave 4, 4.1</title>
+    <style>
+        .red {color: red;}
+    </style>
 </head>
 <body>
     <ul id="result"></ul>
@@ -15,15 +18,15 @@
             const sumSub = num1-num2
             const sumDiv = num1/num2
             const sumMul = num1*num2
-
+            //Oppgave 4.1, endret color hvis tall er negativt
             document.getElementById("result").innerHTML = 
-            `<li>${num1} + ${num2} = ${sumAdd}</li>
-            <li>${num1} + ${num2} = ${sumSub}</li>
-            <li>${num1} + ${num2} = ${sumDiv}</li>
-            <li>${num1} + ${num2} = ${sumMul}</li>`
+            `<li ${sumAdd < 0 ? `class="red"` : null}>${num1} + ${num2} = ${sumAdd}</li>
+            <li ${sumSub < 0 ? `class="red"` : null}>${num1} + ${num2} = ${sumSub}</li>
+            <li ${sumSub < 0 ? `class="red"` : null}>${num1} + ${num2} = ${sumDiv}</li>
+            <li ${sumSub < 0 ? `class="red"` : null}>${num1} + ${num2} = ${sumMul}</li>`
         }
 
-        calculator(10, 5)
+        calculator(10, 15)
 
     </script>
 </body>
