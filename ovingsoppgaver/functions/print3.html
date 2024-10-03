@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3</title>
+</head>
+<body>
+
+    <p id="name"></p>
+    <p id="mail"></p>
+    <p id="age"></p>
+
+    <script>
+        function printInfo(name = "Ikke oppgitt", birthyear = "Ikke oppgitt", email = "Ikke oppgitt") {
+            document.getElementById("name").innerHTML = name
+            document.getElementById("mail").innerHTML = email
+
+            if(birthyear === "Ikke oppgitt") {
+                document.getElementById("age").innerHTML = "Ikke oppgitt"
+            } else {
+                const age = 2024 - birthyear
+                document.getElementById("age").innerHTML = age
+            }
+        }
+
+        printInfo("Victor", 2003, "victon2003@gmail.com")
+    </script>
+</body>
+</html>

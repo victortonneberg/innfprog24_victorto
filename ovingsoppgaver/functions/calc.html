@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 4</title>
+</head>
+<body>
+    <ul id="result"></ul>
+
+    <script>
+
+        function calculator(num1 = 0, num2 = 0) {
+            const sumAdd = num1+num2
+            const sumSub = num1-num2
+            const sumDiv = num1/num2
+            const sumMul = num1*num2
+
+            document.getElementById("result").innerHTML = 
+            `<li>${num1} + ${num2} = ${sumAdd}</li>
+            <li>${num1} + ${num2} = ${sumSub}</li>
+            <li>${num1} + ${num2} = ${sumDiv}</li>
+            <li>${num1} + ${num2} = ${sumMul}</li>`
+        }
+
+        calculator(10, 5)
+
+    </script>
+</body>
+</html>
