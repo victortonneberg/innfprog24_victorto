@@ -8,17 +8,18 @@
 <body>
 
     <script>
+        // Array of teacher names
         const teacherNames = [
             "Victor Tønneberg",
             "Simen Trontveit",
             "David Ødegård"
         ];
         
-        const v = teacherNames [0];
-        console.log(v);
+        // Accessing the first element of the teacherNames array
+        const v = teacherNames[0];
+        console.log(v); // Logs "Victor Tønneberg" to the console
 
-
-
+        // Object containing information about a teacher
         const teacherInfo = {
             name: "Victor Tønneberg",
             age: 20,
@@ -26,11 +27,11 @@
             email: "victorto@hiof.no"
         };
 
-        const victorAge = teacherInfo.age
+        // Accessing the age property of the teacherInfo object
+        const victorAge = teacherInfo.age;
+        console.log(victorAge); // Logs 20 to the console
 
-        console.log(victorAge)
-
-
+        // Array of objects, each representing a teacher's register
         const teacherRegister = [
             {
                 staffid: 1,
@@ -51,18 +52,9 @@
             }
         ];
 
+        // Accessing the first element of the teacherRegister array
         const stCourse = teacherRegister[1].courses[0];
         console.log(stCourse)
-
-
-
-
-
-
-
-
-
-
 
     </script>
     
