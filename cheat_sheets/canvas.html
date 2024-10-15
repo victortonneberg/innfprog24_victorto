@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas cheat sheet</title>
+
+    <style>
+        body {
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawingarea"></canvas>
+
+    <script>
+        //Standard config av canvas
+        const canvas = document.getElementById("drawingarea")
+        canvas.width = 800
+        canvas.height = 600
+        const ctx = canvas.getContext("2d")
+
+        //PATH
+        ctx.beginPath()
+        ctx.moveTo(800, 600)
+        ctx.lineTo(0, 0)
+        ctx.stroke()
+        ctx.closePath()
+
+        //Rectangels (RECT)
+        ctx.beginPath()
+        ctx.rect(100, 100, 200, 200)
+        ctx.fillStyle = "green"
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+        //.fillRect(), .strokeRect()
+        //Tømme canvaset: ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+
+        //Sirkel (ARC)
+        ctx.beginPath()
+        ctx.arc(400, 400, 100, 0, 2 * Math.PI)
+        ctx.fillStyle ="gold"
+        ctx.fill()
+        ctx.closePath()
+
+        //Text
+        ctx.beginPath()
+        ctx.font = "150px Georgia"
+        ctx.strokeText("5", 360, 420)
+        ctx.font = "24px Arial"
+        ctx.fillStyle = "purple"
+        ctx.fillText("Victor", 300, 100)
+        ctx.closePath()
+
+        //Tegn et eksisterende bilde inn i canvas
+        const pumpkin = new Image()
+        let pumpkinLoaded = false
+        pumpkin.onload = () => { pumpkinLoaded = true}
+        pumpkin.src = "pumpkin.png"
+        pumpkinLoaded ? ctx.drawImage(pumpkin, 600, 50,) : null 
+        
+    </script>
+</body>
+</html> 
