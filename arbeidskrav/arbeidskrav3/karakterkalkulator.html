@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakterkalkulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main { 
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            background-color: grey;
+            text-align: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 45px;
+            margin: 1rem;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 1rem;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        button {
+            max-width: 100px;
+            height: 50px;   
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <main>
+            <div>
+                <h1>Karakterkalkulator</h1>
+                <label>
+                    <p>Poeng oppnådd på oppgave 1:</p>
+                    <!--Definert max (10) og min (0) verdi på inputfelt.-->
+                    <input type="number" id="grade1" min="0" max="10">
+                </label>
+                <label>
+                    <p>Poeng oppnådd på oppgave 2:</p>
+                    <!--Definert max (12) og min (0) verdi på inputfelt.-->
+                    <input type="number" id="grade2" min="0" max="12">
+                </label>
+                <button id="submit" disabled>Beregn karakter</button>
+            </div>
+
+            <p id="finalGrade">Din karakter er: <span id="gradePrint"></span></p>
+        </main>
+
+        <script>
+            // Hentet array fra oppgaveteksten. Definerer karakterene og %-grensene for å oppnå dem.
+            const grades = [
+            {grade: "F", treshold: 0},
+            {grade: "E", treshold: 25},
+            {grade: "D", treshold: 44},
+            {grade: "C", treshold: 68},
+            {grade: "B", treshold: 88},
+            {grade: "A", treshold: 100}
+            ]
+
+            // Henter elementer fra HTML
+            const gradeForm = document.getElementById("gradeForm");
+            const grade1 = document.getElementById("grade1");
+            const grade2 = document.getElementById("grade2");
+            const submit = document.getElementById("submit");
+            const finalGrade = document.getElementById("finalGrade");
+            const gradePrint = document.getElementById("gradePrint");
+
+
+            // Funksjon for å enable button id="sumbit" når inputfeltene er fylt ut
+            function enableButton() {
+                if (grade1.value === "" || grade2.value === "") {
+                    // Deaktiverer submit knappen hvis minst et av inputfeltene er tomme.
+                    submit.disabled = true;
+                } else {
+                    submit.disabled = false;
+                }
+            }
+
+            // Kaller funksjonen enableButton() når en verdi "høres" i input feltene. 
+            grade1.addEventListener("input", enableButton);
+            grade2.addEventListener("input", enableButton);
+
+
+            function finalScore() {
+            // Henter value fra input feltene.
+            const points1 = grade1.value
+            const points2 = grade2.value
+
+            // Definerer max poengsum det er mulig å få.
+            const maxPoints1 = 10
+            const maxPoints2 = 12
+
+            // Definerer formelen for utregning av karakter i variablen totalScore
+            const totalScore = (0.3 * (points1 / maxPoints1 * 100)) + (0.7 * (points2 / maxPoints2 * 100))
+            
+            // Bruker if-test for å sjekke verdien totalScore regner ut,
+            // og definere hvilken karakter som skal skrives ut i HTML.
+            if (totalScore < grades[1].treshold) {
+                gradePrint.innerHTML = grades[0].grade;
+            } else if (totalScore < grades[2].treshold && totalScore > grades[1].treshold) {
+                gradePrint.innerHTML = grades[1].grade;
+            } else if (totalScore < grades[3].treshold && totalScore > grades[2].treshold) {
+                gradePrint.innerHTML = grades[2].grade;
+            } else if (totalScore < grades[4].treshold && totalScore > grades[3].treshold) {
+                gradePrint.innerHTML = grades[3].grade;
+            } else if (totalScore < grades[5].treshold && totalScore > grades[4].treshold) {
+                gradePrint.innerHTML = grades[4].grade;
+            } else if (totalScore >= grades[5].treshold) {
+                gradePrint.innerHTML = grades[5].grade;
+            }
+
+            // Console logget totalScore for å se at riktig karakter skrives ut i forhold til verdien som blir utregnet
+            console.log(totalScore);
+         }
+
+        // eventListener som lytter etter click på submit, og kjører funksjonen finalscore() etter click er registrert
+         submit.addEventListener("click", finalScore);
+        </script>
+</body>
+</html>
