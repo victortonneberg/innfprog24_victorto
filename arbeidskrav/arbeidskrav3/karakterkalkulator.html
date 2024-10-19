@@ -11,13 +11,23 @@
             box-sizing: border-box;
         }
 
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+        }
         main { 
             font-family: Arial, Helvetica, sans-serif;
             font-size: 40px;
-            background-color: grey;
+            background-color: rgba(113, 104, 104, 0.329);
             text-align: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 50%;
+            margin: 15rem
         }
 
         h1 {
@@ -43,7 +53,8 @@
         }
 
         button {
-            max-width: 100px;
+            max-width: 150px;
+            width: 100%;
             height: 50px;   
             margin: 20px auto;
         }
@@ -56,7 +67,7 @@
                 <label>
                     <p>Poeng oppnådd på oppgave 1:</p>
                     <!--Definert max (10) og min (0) verdi på inputfelt.-->
-                    <input type="number" id="grade1" min="0" max="10">
+                    <input type="number" id="grade1" min="0" max="10">  
                 </label>
                 <label>
                     <p>Poeng oppnådd på oppgave 2:</p>
@@ -66,7 +77,7 @@
                 <button id="submit" disabled>Beregn karakter</button>
             </div>
 
-            <p id="finalGrade">Din karakter er: <span id="gradePrint"></span></p>
+            <p>Din karakter er: <span id="gradePrint"></span></p>
         </main>
 
         <script>
@@ -81,11 +92,9 @@
             ]
 
             // Henter elementer fra HTML
-            const gradeForm = document.getElementById("gradeForm");
             const grade1 = document.getElementById("grade1");
             const grade2 = document.getElementById("grade2");
             const submit = document.getElementById("submit");
-            const finalGrade = document.getElementById("finalGrade");
             const gradePrint = document.getElementById("gradePrint");
 
 
@@ -103,11 +112,23 @@
             grade1.addEventListener("input", enableButton);
             grade2.addEventListener("input", enableButton);
 
-
+            // Opprettet funksjonen finalScore som regner ut poengsum, og skriver ut karakter til HTML.
             function finalScore() {
             // Henter value fra input feltene.
-            const points1 = grade1.value
-            const points2 = grade2.value
+            const points1 = (grade1.value)
+            const points2 = (grade2.value)
+
+            // If-test for å sjekke at verdien brukeren oppgir er gyldig. 
+            // Hvis ugyldig, returnerer den HTML-warning og ber bruker skrive inn gyldig verdi.
+            // Bruker return for å stoppe resterende kode å kjøre hvis input er ugyldig.
+            if (points1 < 0 || points1 > 10) {
+                alert("Oppgave 1: Ugyldig verdi. Skriv inn en verdi mellom 0-10.")
+                return
+            } 
+            if (points2 < 0 || points2 > 12) {
+                alert("Oppgave 2: Ugyldig verdi. Skriv inn en verdi mellom 0-12.")
+                return
+            }
 
             // Definerer max poengsum det er mulig å få.
             const maxPoints1 = 10
