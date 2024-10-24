@@ -81,7 +81,7 @@
         </main>
 
         <script>
-            // Hentet array fra oppgaveteksten. Definerer karakterene og %-grensene for å oppnå dem.
+            //Hentet array fra oppgaveteksten. Definerer karakterene og %-grensene for å oppnå dem.
             const grades = [
             {grade: "F", treshold: 0},
             {grade: "E", treshold: 25},
@@ -91,54 +91,52 @@
             {grade: "A", treshold: 100}
             ]
 
-            // Henter elementer fra HTML
+            //Henter elementer fra HTML
             const grade1 = document.getElementById("grade1");
             const grade2 = document.getElementById("grade2");
             const submit = document.getElementById("submit");
             const gradePrint = document.getElementById("gradePrint");
 
 
-            // Funksjon for å enable button id="sumbit" når inputfeltene er fylt ut
+            //Funksjon for å enable button id="sumbit" når inputfeltene er fylt ut
             function enableButton() {
-                if (grade1.value === "" || grade2.value === "") {
-                    // Deaktiverer submit knappen hvis minst et av inputfeltene er tomme.
-                    submit.disabled = true;
+                //Konverterer verdiene fra input-feltene til tall for å kunne sjekke at de er gyldige
+                const points1 = Number(grade1.value)
+                const points2 = Number(grade2.value)
+
+                //Sjekker om input-feltene er tomme og eller har ugyldige verdier
+                if(
+                    grade1.value === "" ||
+                    grade2.value === "" ||
+                    points1 < 0 || points1 > 10 ||
+                    points2 < 0 || points2 > 12
+                ) {
+                    submit.disabled = true
                 } else {
-                    submit.disabled = false;
+                    submit.disabled = false
                 }
             }
-
-            // Kaller funksjonen enableButton() når en verdi "høres" i input feltene. 
+            
+            //Kaller funksjonen enableButton() når en verdi endres i input-feltene. 
             grade1.addEventListener("input", enableButton);
             grade2.addEventListener("input", enableButton);
+            
 
-            // Opprettet funksjonen finalScore som regner ut poengsum, og skriver ut karakter til HTML.
+            //Opprettet funksjonen finalScore som regner ut poengsum, og skriver ut karakter til HTML.
             function finalScore() {
-            // Henter value fra input feltene.
+            //Henter value fra input feltene.
             const points1 = (grade1.value)
             const points2 = (grade2.value)
 
-            // If-test for å sjekke at verdien brukeren oppgir er gyldig. 
-            // Hvis ugyldig, returnerer den HTML-warning og ber bruker skrive inn gyldig verdi.
-            // Bruker return for å stoppe resterende kode å kjøre hvis input er ugyldig.
-            if (points1 < 0 || points1 > 10) {
-                alert("Oppgave 1: Ugyldig verdi. Skriv inn en verdi mellom 0-10.")
-                return
-            } 
-            if (points2 < 0 || points2 > 12) {
-                alert("Oppgave 2: Ugyldig verdi. Skriv inn en verdi mellom 0-12.")
-                return
-            }
-
-            // Definerer max poengsum det er mulig å få.
+            //Definerer max poengsum det er mulig å få.
             const maxPoints1 = 10
             const maxPoints2 = 12
 
-            // Definerer formelen for utregning av karakter i variablen totalScore
+            //Definerer formelen for utregning av karakter i variablen totalScore
             const totalScore = (0.3 * (points1 / maxPoints1 * 100)) + (0.7 * (points2 / maxPoints2 * 100))
             
-            // Bruker if-test for å sjekke verdien totalScore regner ut,
-            // og definere hvilken karakter som skal skrives ut i HTML.
+            //Bruker if-test for å sjekke verdien totalScore regner ut,
+            //og definere hvilken karakter som skal skrives ut i HTML.
             if (totalScore < grades[1].treshold) {
                 gradePrint.innerHTML = grades[0].grade;
             } else if (totalScore < grades[2].treshold && totalScore > grades[1].treshold) {
@@ -153,11 +151,11 @@
                 gradePrint.innerHTML = grades[5].grade;
             }
 
-            // Console logget totalScore for å se at riktig karakter skrives ut i forhold til verdien som blir utregnet
+            //Console logget totalScore for å se at riktig karakter skrives ut i forhold til verdien som blir utregnet
             console.log(totalScore);
          }
 
-        // eventListener som lytter etter click på submit, og kjører funksjonen finalscore() etter click er registrert
+        //addEventListener som lytter etter click på submit, og kjører funksjonen finalscore() etter click er registrert
          submit.addEventListener("click", finalScore);
         </script>
 </body>
