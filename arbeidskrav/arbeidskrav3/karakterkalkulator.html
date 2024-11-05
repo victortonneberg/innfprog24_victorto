@@ -101,10 +101,11 @@
             //Funksjon for å enable button id="sumbit" når inputfeltene er fylt ut
             function enableButton() {
                 //Konverterer verdiene fra input-feltene til tall for å kunne sjekke at de er gyldige
+                //Kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
                 const points1 = Number(grade1.value)
                 const points2 = Number(grade2.value)
 
-                //Sjekker om input-feltene er tomme og eller har ugyldige verdier
+                //Sjekker om input-feltene er tomme og/eller har ugyldige verdier
                 if(
                     grade1.value === "" ||
                     grade2.value === "" ||
