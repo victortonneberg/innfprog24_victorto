@@ -32,7 +32,7 @@
     </header>
     <main>
         <canvas id="anim-area"></canvas>
-        <section id="notebook">
+        <section id="notebook" class=hidden>
             <div id="notebook-page">
                 
                 <h2>Notater</h2>
@@ -198,6 +198,17 @@
             let itemImage = new Image()
             itemImage.src = `icons/${type}.svg`
             itemImage.onload = () => { ctx.drawImage(itemImage, x, y) }
+            //WS3, Oppg 5.3: Utskrift av levetid:
+            if(type != "bug") {
+            ctx.beginPath()
+            ctx.arc(x, y, 10, 0, 2 * Math.PI)
+            ctx.fillStyle = "red"
+            ctx.fill()
+            ctx.fillStyle = "white"
+            ctx.font = "11px Verdana"
+            ctx.fillText("99", x - 7, y + 4)
+            ctx.closePath()
+            }
         }
 
         const requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
@@ -225,7 +236,7 @@
 
             //WS3, oppg 5.2 test:
             drawItem("function", 50, 100)
-            drawItem("array", 400, 500)
+            drawItem("bug", 400, 500)
 
             //WS3, Oppg 2: Pausetext
             ctx.beginPath()
